@@ -46,21 +46,11 @@ function handleFormSubmit(e) {
   const emailValid = validateInput(emailInput);
   const messageValid = validateInput(messageInput);
   
-  // If all inputs are valid, submit the form
+  // If all inputs are valid, submit the form to Formspree
   if (nameValid && emailValid && messageValid) {
-    // Show loading state
     submitButton.classList.add('loading');
-    
-    // Simulate form submission (would be replaced with actual API call)
-    setTimeout(() => {
-      submitButton.classList.remove('loading');
-      
-      // Clear form
-      form.reset();
-      
-      // Show success message
-      showToast('Message sent successfully! I\'ll get back to you soon.', 'success');
-    }, 1500);
+    // Actually submit the form to Formspree
+    form.submit();
   }
 }
 
