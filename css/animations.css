@@ -1,0 +1,120 @@
+/* Animations */
+@keyframes blink {
+0%, 100% { opacity: 1; }
+50% { opacity: 0; }
+}
+
+@keyframes scroll {
+0% { 
+  opacity: 1; 
+  top: var(--space-sm);
+}
+50% { 
+  opacity: 1; 
+  top: calc(100% - var(--space-lg));
+}
+100% { 
+  opacity: 0; 
+  top: calc(100% - var(--space-lg));
+}
+}
+
+@keyframes fadeInOut {
+0%, 100% { opacity: 0; }
+50% { opacity: 1; }
+}
+
+@keyframes glitch {
+0% {
+  transform: translate(0);
+}
+20% {
+  transform: translate(-2px, 2px);
+}
+40% {
+  transform: translate(-2px, -2px);
+}
+60% {
+  transform: translate(2px, 2px);
+}
+80% {
+  transform: translate(2px, -2px);
+}
+100% {
+  transform: translate(0);
+}
+}
+
+@keyframes spin {
+to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Animation classes */
+.fade-in {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+.slide-in {
+opacity: 0;
+transform: translateX(-20px);
+transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.slide-in.visible {
+opacity: 1;
+transform: translateX(0);
+}
+
+.glitch {
+position: relative;
+transition: all var(--transition-fast);
+}
+
+.glitch:hover {
+animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+text-shadow: 
+  0.05em 0 0 rgba(255, 0, 0, 0.75),
+  -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+  0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+}
+
+.glitch:hover span.name {
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+}
+
+/* Typing animation */
+  .typed-text {
+  border-right: 0.1em solid transparent;
+}
+
+/* Hide element visually and disable pointer events */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Smooth fade for .mouse (scroll-indicator) */
+.scroll-indicator .mouse,
+.scroll-indicator .arrow {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 250ms ease-in, visibility 250ms linear;
+}
+.scroll-indicator .mouse.visible,
+.scroll-indicator .arrow.visible {
+  visibility: visible;
+  opacity: 1;
+}
+.scroll-indicator .mouse:not(.visible),
+.scroll-indicator .arrow:not(.visible) {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 250ms ease-in, visibility 0s linear 250ms;
+}

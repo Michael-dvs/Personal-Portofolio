@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michaelarrhdyn Porto</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="#home">
+          <span class="logo-text">&lt;Michaelarrhdyn<span class="accent">/</span>&gt;</span>
+        </a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-btn">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="typed-text-container">
+          <span id="typed-text" class="typed-text"></span>
+          <span class="cursor">|</span>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+        <div class="arrow">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title"><span class="accent">&lt;</span> About Me <span class="accent">/&gt;</span></h2>
+        <h1 class="glitch about-hero-center">
+          <span class="greeting slide-in">Hello, I'm</span>
+          <span id="dev-name" class="name slide-in">Michael Aristyo Rahadiyan</span>
+        </h1>
+        <div class="about-content">
+          <div class="about-text slide-in">
+            <p>As an aspiring software developer and a current undergraduate student, I am deeply engaged in the world of technology. My journey began with a curiosity for Python, leading me to build a solid foundation in creating practical applications, particularly with data operations using tools like Pandas and MySQL.</p>
+            <p>To further immerse myself in a collaborative tech environment, I joined LePKom at Gunadarma University as a Lab Assistant. This role has not only sharpened my existing skills but has also ignited a new interest in Golang as I guide my peers in learning this powerful language.</p>
+          </div>
+          <div class="skills slide-in">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skill-categories">
+              <div class="skill-category">
+                <h4>Frontend</h4>
+                <ul class="skill-list">
+                  <li class="htmlcss">HTML5 & CSS3</li>
+                  <li class="javascript">JavaScript (ES6+)</li>
+                  <li class="responsive">Responsive Design</li>
+                </ul>
+              </div>
+              <div class="skill-category">
+                <h4>Backend</h4>
+                <ul class="skill-list">
+                  <li class="golang">Golang</li>
+                  <li class="csharp">C#</li>
+                  <li class="python">Python</li>
+                  <li class="django">Django</li>
+                  <li class="java">Java</li>
+                </ul>
+              </div>
+              <div class="skill-category">
+                <h4>Tools & Other</h4>
+                <ul class="skill-list">
+                  <li class="gitgithub">Git & GitHub</li>
+                  <li class="figma">Figma</li>
+                  <li class="mongodb">MongoDB</li>
+                  <li class="postgresql">PostgreSQL</li>
+                  <li class="mysql">Mysql</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title"><span class="accent">&lt;</span> Projects <span class="accent">/&gt;</span></h2>
+        <div class="project-grid">
+          <!-- Project 1 -->
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <img src="https://cdnpro.eraspace.com/media/mageplaza/blog/post/i/n/instagram_stories-gambar_utama.jpeg" alt="Instagram Story Downloader">
+            </div>
+            <div class="project-info">
+              <h3>Instagram Story Downloader</h3>
+              <p>A secure Python script to download Instagram Stories, featuring persistent login sessions with 2FA support and a logout function.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Instaloader</span>
+              </div>
+              <div class="project-links">
+                <a href="https://drive.google.com/file/d/18pRtd3MguQbtR_rqEIkNCH6lldiiRn-M/view?usp=sharing" class="btn btn-sm">View Demo</a>
+                <a href="https://github.com/Michael-dvs/Instagram-Story-Downloader" class="btn btn-sm btn-outline">Source Code</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <img src="https://assets.cioinsight.com/uploads/2022/05/Database-Management-Systems-1024x640.jpeg" alt="CRUD MANAGEMENT WARUNG">
+            </div>
+            <div class="project-info">
+              <h3>Store CRUD Python-MySQL</h3>
+              <p>A Python (Tkinter) and MySQL-based GUI application for simple CRUD management of store inventory, featuring a dashboard.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Mysql</span>
+                <span class="tech-tag">Tkinter</span>
+              </div>
+              <div class="project-links">
+                <a href="https://drive.google.com/file/d/15k4-5raoQA_hjvAR7L5vFlpVaF6F2ROp/view?usp=sharing" class="btn btn-sm">View Demo</a>
+                <a href="https://github.com/Michael-dvs/CRUD-PYTHON-MYSQL-Warung" class="btn btn-sm btn-outline">Source Code</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card fade-in">
+            <div class="project-image">
+              <!-- Replace the src below with the path to your own image file -->
+              <img src="https://github.com/Michael-dvs/Personal-Portofolio/blob/main/assets/Screenshot%202025-05-27%20131505.PNG?raw=true" alt="Project Kuda Lompat">
+            </div>
+            <div class="project-info">
+              <h3>Horse Jumping Game</h3>
+              <p>The classic "dino jumping" game, but with a horse. A fun side-project.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pygame</span>
+              </div>
+              <div class="project-links">
+                <a href="https://drive.google.com/file/d/1CiUv3zlkcELr6mlQRFLbw_K7nn5_Bp3B/view?usp=sharing" class="btn btn-sm">View Demo</a>
+                <a href="https://github.com/Michael-dvs/Horse-Jumpp-game" class="btn btn-sm btn-outline">Source Code</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title"><span class="accent">&lt;</span> Contact <span class="accent">/&gt;</span></h2>
+        <div class="contact-content">
+          <div class="contact-info slide-in">
+            <h3>Get in touch</h3>
+            <p>Have a project in mind or just want to say hi? Feel free to reach out!</p>
+            <ul class="contact-links">
+              <li>
+                <i class="icon-email"></i>
+                <a href="mailto:maikerurahadian@gmail.com">maikerurahadian@gmail.com</a>
+              </li>
+              <li>
+                <i class="icon-location"></i>
+                <span>Jatinegara, Jakarta Timur</span>
+              </li>
+            </ul>
+            <div class="social-links">
+              <a href="https://github.com/michael-dvs" class="social-link" title="GitHub">
+                <i class="icon-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/michael-aristyo-rahadiyan-94693632b/" class="social-link" title="LinkedIn">
+                <i class="icon-linkedin"></i>
+              </a>
+              <a href="https://www.instagram.com/michaelarhdyn/" class="social-link" title="Instagram">
+                <i class="icon-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <form id="contact-form" class="contact-form slide-in" action="https://formspree.io/f/xjkwqqag" method="POST">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+              <div class="error-message"></div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+              <div class="error-message"></div>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <div class="error-message"></div>
+            </div>
+            <button type="submit" class="btn btn-primary submit-btn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loader"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="current-year"></span> Michael Aristyo Rahadiyan. All rights reserved.</p>
+      <p class="credits">Designed & built with ❤️ by <a href="#home">Michaelarrhdyn</a></p>
+      <p class="credits">Special credits: <a href="https://bolt.new/">Bolt AI</a></p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
