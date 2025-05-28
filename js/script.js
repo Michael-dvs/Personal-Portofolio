@@ -31,7 +31,6 @@ function initMobileMenu() {
     overlay.style.opacity = '0';
     overlay.style.pointerEvents = 'none';
     overlay.style.transition = 'opacity 0.3s';
-    document.body.appendChild(overlay);
   }
 
   function openMenu() {
@@ -69,25 +68,26 @@ function initMobileMenu() {
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', (e) => {
         if (window.innerWidth <= 768 && navLinks.classList.contains('is-open')) {
-          // Allow default anchor behavior after closing menu
           setTimeout(() => {
             closeMenu();
-          }, 10); // Let the browser handle the anchor first
+          }, 10);
         }
       });
     });
-    // Remove overlay z-index hack and use pointer-events properly
-    overlay.style.zIndex = '9998';
-    navLinks.style.zIndex = '';
-    // Make overlay only cover area outside navLinks
-    overlay.addEventListener('click', (e) => {
-      // If the click target is NOT inside navLinks, close menu
-      if (!navLinks.contains(document.elementFromPoint(e.clientX, e.clientY))) {
+
+    overlay.addEventListener('click', () => {
+      closeMenu();
+    });
+
+    document.addEventListener('mousedown', (e) => {
+      if (
+        navLinks.classList.contains('is-open') &&
+        !navLinks.contains(e.target) &&
+        !mobileMenuBtn.contains(e.target)
+      ) {
         closeMenu();
       }
     });
-    // Remove any z-index on navLinks so it stays above overlay by DOM order
-    navLinks.style.zIndex = '';
 
     // Touch swipe to close
     let startX = null;
@@ -99,7 +99,7 @@ function initMobileMenu() {
     navLinks.addEventListener('touchmove', (e) => {
       if (startX !== null && e.touches.length === 1) {
         const diffX = e.touches[0].clientX - startX;
-        if (diffX < -50) { // swipe left to close
+        if (diffX > 50) { // swipe left to close
           closeMenu();
           startX = null;
         }
@@ -110,5 +110,6 @@ function initMobileMenu() {
     });
   }
 }
+
 
 document.addEventListener('DOMContentLoaded', initMobileMenu);

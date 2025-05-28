@@ -678,7 +678,7 @@ body.menu-is-open {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: -100%;
     height: 100vh;
@@ -689,15 +689,21 @@ body.menu-is-open {
     transition: right 0.4s cubic-bezier(0.77,0,0.175,1), opacity 0.4s, visibility 0.4s;
     opacity: 0;
     visibility: hidden;
-    z-index: var(--z-modal);
+    z-index: 9999;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-    pointer-events: auto;
+    pointer-events: none;
+    font-size: 1.2rem;
+    gap: 3rem
   }
   .nav-links.is-open {
+    position: fixed;
     right: 0;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    background: var(--bg-tertiary);
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
   }
   .nav-links.is-closing {
     right: -100%;
@@ -708,6 +714,9 @@ body.menu-is-open {
   }
   .mobile-menu-btn {
     display: flex;
-    z-index: var(--z-fixed);
+    position: fixed; /* or absolute, but fixed is usually better for overlays */
+    top: 1.5rem;     /* adjust as needed */
+    right: 1.5rem;   /* adjust as needed */
+    z-index: 20000;  /* higher than .nav-links (9999) and overlay (9998) */
   }
 }
