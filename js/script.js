@@ -1,23 +1,10 @@
 // Main script file
-document.addEventListener('DOMContentLoaded', () => {
-  initFormValidation();
-  initContactFormAjax();
-  // Set current year in footer
-  document.getElementById('current-year').textContent = new Date().getFullYear();
-  
-  // Initialize all modules
-  initTypingAnimation();
-  initScrollAnimations();
-  initMobileMenu();
-  initFormValidation();
-});
-
 function initContactFormAjax() {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
   form.addEventListener('submit', async function(e) {
-    e.preventDefault(); // Prevent default submission
+    e.preventDefault(); // <-- THIS IS CRITICAL
 
     const submitBtn = form.querySelector('.submit-btn');
     const btnText = submitBtn.querySelector('.btn-text');
@@ -52,6 +39,19 @@ function initContactFormAjax() {
     }
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFormValidation();
+  initContactFormAjax();
+  // Set current year in footer
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  
+  // Initialize all modules
+  initTypingAnimation();
+  initScrollAnimations();
+  initMobileMenu();
+  initFormValidation();
+});
 
 function showToast(message, type = 'success') {
   let toast = document.createElement('div');
@@ -161,6 +161,3 @@ function initMobileMenu() {
     });
   }
 }
-
-
-document.addEventListener('DOMContentLoaded', initMobileMenu);
