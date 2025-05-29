@@ -1,5 +1,7 @@
 // Main script file
 document.addEventListener('DOMContentLoaded', () => {
+  initFormValidation();
+  initContactFormAjax();
   // Set current year in footer
   document.getElementById('current-year').textContent = new Date().getFullYear();
   
@@ -9,6 +11,55 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initFormValidation();
 });
+
+function initContactFormAjax() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault(); // Prevent default submission
+
+    const submitBtn = form.querySelector('.submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'inline-block';
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      btnText.style.display = '';
+      btnLoader.style.display = 'none';
+
+      if (response.ok) {
+        showToast('Message sent successfully!', 'success');
+        form.reset();
+      } else {
+        showToast('Failed to send message. Please try again.', 'error');
+      }
+    } catch (err) {
+      btnText.style.display = '';
+      btnLoader.style.display = 'none';
+      showToast('Network error. Please try again.', 'error');
+    }
+  });
+}
+
+function showToast(message, type = 'success') {
+  let toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
 
 // Mobile menu toggle for burger button
 function initMobileMenu() {
@@ -34,11 +85,11 @@ function initMobileMenu() {
   }
 
   function openMenu() {
-    mobileMenuBtn.classList.add('active');
+    navLinks.style.transition = 'none'; // Remove transition for instant open
     navLinks.classList.add('is-open');
-    body.classList.add('menu-is-open');
-    overlay.style.opacity = '1';
-    overlay.style.pointerEvents = 'auto';
+    setTimeout(() => {
+      navLinks.style.transition = ''; // Restore transition for closing
+    }, 10);
   }
   function closeMenu() {
     mobileMenuBtn.classList.remove('active');

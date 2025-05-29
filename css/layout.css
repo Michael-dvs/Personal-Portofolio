@@ -621,18 +621,6 @@ footer p {
   content: "📍";
 }
 
-.icon-github::before {
-  content: "GH";
-}
-
-.icon-linkedin::before {
-  content: "LI";
-}
-
-.icon-instagram::before {
-  content: "IG";
-}
-
 /* Typography and Spacing Adjustments */
 .skill-list li {
   display: flex;
